@@ -60,6 +60,7 @@ def get_team_statistics(team_name):
     return jsonify({'players': players})
 
 if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5001))  # Use PORT from environment variable, or default to 5001 for local
     app.run(host='0.0.0.0', port=5001, debug=True)
 
 
