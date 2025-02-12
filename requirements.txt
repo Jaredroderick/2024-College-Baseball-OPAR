@@ -1,5 +1,6 @@
 flask==3.1.0
 flask-cors==5.0.0
+uvicorn
 gunicorn==23.0.0
 openpyxl==3.1.2
 pandas==1.5.3
