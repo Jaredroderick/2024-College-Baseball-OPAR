@@ -16,20 +16,20 @@ filtered_OP_df = filtered_OP_df[filtered_OP_df["PA"] >= 50]  # Filter for player
 filtered_OP_df = filtered_OP_df.dropna(subset=["School"])  # Remove rows with missing team names
 
 # Create the "OnBase_Ability" column
-filtered_OP_df["OnBase_Ability"] = (
+filtered_OP_df["OnBase_Ability"] = 10 * (
     .0628 / (.0628 + .0801 + .0805) * filtered_OP_df["OBP"] + 
     .0801 / (.0628 + .0801 + .0805) * filtered_OP_df["wOBA"] +
     .0805 / (.0628 + .0801 + .0805) * filtered_OP_df["BABIP"]
 )
 
 # Create the "Power" column
-filtered_OP_df["Power"] = (
+filtered_OP_df["Power"] = 10 * (
     .236 / (.236 + .0474) * filtered_OP_df["ISO"] + 
     .0474 / (.236 + .0474) * filtered_OP_df["HR/PA"] 
 )
 
 # Create the "OP" (Offensive Production) column
-filtered_OP_df["OP"] = (
+filtered_OP_df["OP"] = 10 * (
     0.1098 * filtered_OP_df["OnBase_Ability"] +
     0.1049 * filtered_OP_df["Power"] +
     0.0273 * filtered_OP_df["BB%"] -
