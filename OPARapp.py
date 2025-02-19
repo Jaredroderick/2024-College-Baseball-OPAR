@@ -51,7 +51,7 @@ print(filtered_OP_df.head())
 def home():
     teams = filtered_OP_df["School"].unique()  # Get unique team names
     print("Teams passed to template:", teams)  # Debugging
-    return render_template('OPARindex.html', teams=teams)
+    return render_template('OPARIndex.html', teams=teams)
 
 # API route to fetch data for a specific team
 @app.route('/api/teams/<team_name>/statistics', methods=['GET'])
